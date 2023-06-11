@@ -1,16 +1,16 @@
 import { useForm } from 'react-hook-form';
 import { Header } from '../../components/Header';
 import { InputSchedule } from '../../components/InputSchedule';
-import style from './Schedules.module.css';
 import { useAuth } from '../../hooks/auth';
+import style from './Schedules.module.css';
 
-import { formatISO, getHours, parseISO, setHours } from 'date-fns';
-import { api } from '../../server';
-import { toast } from 'react-toastify';
-import { isAxiosError } from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { isAxiosError } from 'axios';
+import { formatISO, getHours, parseISO, setHours } from 'date-fns';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
+import { api } from '../../server';
 interface IFormValues {
   date: string;
   name: string;
@@ -112,7 +112,7 @@ export function Schedules() {
 
           <div className={style.footer}>
             <button>Cancelar</button>
-            <button>Editar</button>
+            <button>Agendar</button>
           </div>
         </form>
       </div>

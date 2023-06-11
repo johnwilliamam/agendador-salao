@@ -2,7 +2,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { AiOutlineMail } from 'react-icons/ai';
 import { BsKey, BsPerson } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import logo from '../../assets/logo.webp';
 import { Button } from '../../components/Button';
@@ -16,6 +17,7 @@ interface IFormValues {
 }
 
 export function Register() {
+  const navigate = useNavigate();
   const schema = yup.object().shape({
     name: yup.string().required('Campo de nome obrigatório'),
     email: yup
@@ -40,7 +42,10 @@ export function Register() {
       password: data.password,
     });
     if(result.status === 201){
-      alert('Cadastro realizado com sucesso!');
+      toast.success('Usuário cadastrado com sucesso')
+      setTimeout(() => {
+        navigate('/');
+      }, 2500);
     }
   });
   return (

@@ -10,3 +10,7 @@
 .button span {
   font-size: 1rem;
 }
+
+.button:hover {
+  cursor: pointer;
+}

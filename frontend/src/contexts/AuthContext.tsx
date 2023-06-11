@@ -1,8 +1,8 @@
-import { ReactNode, createContext, useEffect, useState } from 'react';
-import { api } from '../server';
 import { isAxiosError } from 'axios';
-import { toast } from 'react-toastify';
+import { ReactNode, createContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { api } from '../server';
 
 interface IAuthProvider {
   children: ReactNode;
@@ -87,7 +87,7 @@ export function AuthProvider({ children }: IAuthProvider) {
       const userData = {
         name: user.name,
         email: user.email,
-        avatar_url: user.avatar_url,
+        // avatar_url: user.avatar_url,
       };
       localStorage.setItem('token:semana-heroi', token);
       localStorage.setItem('refresh_token:semana-heroi', refresh_token);
